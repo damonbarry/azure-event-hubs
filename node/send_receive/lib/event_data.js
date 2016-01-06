@@ -5,4 +5,8 @@
 
 function EventData() {}
 
+EventData.prototype.getBytes = function () {
+  return [];
+};
+
 module.exports = EventData;

@@ -14,4 +14,11 @@ describe('EventData', function () {
       (new EventData()).should.be.an.instanceof(EventData);
     });
   });
+  
+  describe('getBytes()', function () {
+    it('returns an empty array if the object has no body', function () {
+      var data = new EventData;
+      data.getBytes().should.be.empty;
+    });
+  });
 });
