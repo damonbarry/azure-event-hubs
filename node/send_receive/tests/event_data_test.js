@@ -16,9 +16,15 @@ describe('EventData', function () {
   });
   
   describe('getBytes()', function () {
-    it('returns an empty array if the object has no body', function () {
+    it('returns an empty Buffer if the object has no body', function () {
       var data = new EventData;
       data.getBytes().should.be.empty;
+    });
+    
+    it('returns a Buffer representing the input string', function () {
+      var body = 'hello';
+      var buffer = (new EventData(body)).getBytes();
+      buffer.toString().should.equal(body);
     });
   });
 });

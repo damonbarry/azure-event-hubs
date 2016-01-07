@@ -3,10 +3,12 @@
 
 'use strict';
 
-function EventData() {}
+function EventData(body) {
+  this._body = !body ? [] : body;
+}
 
 EventData.prototype.getBytes = function () {
-  return [];
+  return new Buffer(this._body);
 };
 
 module.exports = EventData;
