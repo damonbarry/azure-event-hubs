@@ -5,6 +5,13 @@
 
 function EventData(body) {
   body = body || [];
+  if (typeof body === 'object' &&
+      !Array.isArray(body) &&
+      !Buffer.isBuffer(body)) {
+      // Buffer only accepts a number, buffer, array, or string argument, so
+      // serialize objects to JSON.
+      body = JSON.stringify(body);
+  }
   this._body = new Buffer(body);
 }
 

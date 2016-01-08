@@ -27,6 +27,12 @@ describe('EventData', function () {
       buffer.toString().should.equal(body);
     });
     
+    it('returns a JSON-serialized string Buffer representing the input object', function () {
+      var body = { name: 'hello', value: 'world' };
+      var buffer = (new EventData(body)).getBytes();
+      buffer.toString().should.equal(JSON.stringify(body));
+    });
+    
     it('returns the same Buffer every time it is called', function () {
       var body = 'hello';
       var data = new EventData(body);
