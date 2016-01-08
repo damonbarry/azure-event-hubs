@@ -26,5 +26,11 @@ describe('EventData', function () {
       var buffer = (new EventData(body)).getBytes();
       buffer.toString().should.equal(body);
     });
+    
+    it('returns the same Buffer every time it is called', function () {
+      var body = 'hello';
+      var data = new EventData(body);
+      data.getBytes().should.equal(data.getBytes());
+    });
   });
 });
